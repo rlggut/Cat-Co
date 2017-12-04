@@ -18,6 +18,7 @@ public class Science : MonoBehaviour {
 	public int stage;
 	public GameObject check;
 	public int num;
+	public bool flag;
 	// Use this for initialization
 	void Start () {
 
@@ -28,6 +29,11 @@ public class Science : MonoBehaviour {
 		if (PlayerPrefs.GetInt ("research" + num.ToString()) == 1) {
 			check.SetActive (true);
 		}			
+		flag = (PlayerPrefs.GetFloat ("Cats") + cats > 0) &&
+			(PlayerPrefs.GetFloat ("Get_cat") + use_cat > 0) && (PlayerPrefs.GetFloat ("Coins") + coins > 0) &&
+			(PlayerPrefs.GetFloat ("Get_coins") + use_coins > 0) &&
+			(PlayerPrefs.GetFloat ("Food") + food > 0) && (PlayerPrefs.GetFloat ("Get_food") + use_food > 0)
+			&& (PlayerPrefs.GetFloat ("Lab") + lab > 0)&& (PlayerPrefs.GetFloat ("Warriors") + war >= 0);
 	}
 	void OnMouseDown()
 	{
@@ -35,7 +41,7 @@ public class Science : MonoBehaviour {
 			(PlayerPrefs.GetFloat ("Get_cat") + use_cat > 0) && (PlayerPrefs.GetFloat ("Coins") + coins > 0) &&
 			(PlayerPrefs.GetFloat ("Get_coins") + use_coins > 0) &&
 			(PlayerPrefs.GetFloat ("Food") + food > 0) && (PlayerPrefs.GetFloat ("Get_food") + use_food > 0)
-			&& (PlayerPrefs.GetFloat ("Lab") + lab > 0)&& (PlayerPrefs.GetFloat ("Warriors") + war > 0)) {
+			&& (PlayerPrefs.GetFloat ("Lab") + lab > 0)&& (PlayerPrefs.GetFloat ("Warriors") + war >= 0)) {
 
 			PlayerPrefs.SetFloat ("Cats", PlayerPrefs.GetFloat ("Cats") + cats);
 			PlayerPrefs.SetFloat ("Get_cat",PlayerPrefs.GetFloat ("Get_cat") + get_cat);

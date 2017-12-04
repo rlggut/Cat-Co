@@ -36,7 +36,7 @@ public class New_game : MonoBehaviour {
 
 		PlayerPrefs.SetFloat ("Cats",100.0f);
 		PlayerPrefs.SetFloat ("Use_cat",0.0f);
-		PlayerPrefs.SetFloat ("Get_cat",0.001f);
+		PlayerPrefs.SetFloat ("Get_cat",0.01f);
 
 
 		PlayerPrefs.SetFloat ("Coins",10.0f);

@@ -8,7 +8,7 @@ public class Arrows : MonoBehaviour {
 	public Transform p1, p2;
 	// Use this for initialization
 	void Start () {
-		
+		PlayerPrefs.SetInt ("SeeRes", 0);
 	}
 	
 	// Update is called once per frame

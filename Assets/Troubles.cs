@@ -10,6 +10,7 @@ public class Troubles : MonoBehaviour {
 	public GameObject neighbors;
 	public GameObject neighbors_txt;
 	public GameObject society;
+	public GameObject well;
 	public bool play=false;
 	private int employ;
 	private int regim=0;
@@ -20,6 +21,7 @@ public class Troubles : MonoBehaviour {
 		neighbors.SetActive (false);
 		society.SetActive (false);
 		surp.SetActive (false);
+		well.SetActive (false);
 	}
 	
 	// Update is called once per frame
@@ -53,8 +55,18 @@ public class Troubles : MonoBehaviour {
 			PlayerPrefs.SetInt ("Play", 0);
 		}
 
+		if (PlayerPrefs.GetInt ("game_stage") >= 8) {
+			Display.SetActive (false);
+			play = true;
+			well.SetActive (true);
+			surp.SetActive (true);
+			surp.GetComponent<Animation> ().Play();
+			PlayerPrefs.SetInt ("Play", 0);
+		}
+
 		if (!surp.GetComponent<Animation> ().isPlaying) {
 			if(society.activeSelf) Application.LoadLevel("Over");
+			if(well.activeSelf) Application.LoadLevel("Win");
 			PlayerPrefs.SetInt ("Play", 1);
 			Display.SetActive (true);
 			play = false;
@@ -62,6 +74,7 @@ public class Troubles : MonoBehaviour {
 			neighbors.SetActive (false);
 			society.SetActive (false);
 			surp.SetActive (false);
+			well.SetActive (false);
 		}
 
 		if(((PlayerPrefs.GetFloat("Coins")<0)||(PlayerPrefs.GetFloat("Food")<0))&&(!surp.GetComponent<Animation> ().isPlaying))

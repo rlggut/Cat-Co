@@ -17,8 +17,7 @@ public class Game_rule : MonoBehaviour {
 			t = 30;
 			get_food=PlayerPrefs.GetInt ("Farmers")*3;
 			PlayerPrefs.SetFloat ("Get_food",get_food);
-			labs = +PlayerPrefs.GetInt ("Scientist") * 0.001f;
-			PlayerPrefs.SetFloat ("Get_lab", labs);
+
 
 			PlayerPrefs.SetFloat ("Cats", PlayerPrefs.GetFloat ("Cats") + PlayerPrefs.GetFloat ("Use_cat") +
 				PlayerPrefs.GetFloat ("Get_cat")*PlayerPrefs.GetFloat("cat_pow"));
